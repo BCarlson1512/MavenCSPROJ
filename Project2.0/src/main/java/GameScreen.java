@@ -37,7 +37,7 @@ public class GameScreen extends JFrame {
 			}
 		}
 		
-		
+		 //... 
 		
 		
 	}	// this is the place where the game will be played, this gui element just has to be called on by main

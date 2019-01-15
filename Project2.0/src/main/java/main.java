@@ -20,11 +20,7 @@ public class main extends JFrame {
 	
 	
 	public main() {
-		
-		
-		
-		
-		
+
 		JButton InstructionsBtn = new JButton("Instructions");
 		InstructionsBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -33,8 +29,6 @@ public class main extends JFrame {
 			 w.setVisible(true);
 			}
 		});
-		
-		JButton button = new JButton("New button");
 		
 		JButton PlayBtn = new JButton("Play");
 		PlayBtn.addActionListener(new ActionListener() {
@@ -66,10 +60,8 @@ public class main extends JFrame {
 					.addContainerGap()
 					.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING)
 						.addGroup(groupLayout.createSequentialGroup()
-							.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-								.addComponent(InstructionsBtn)
-								.addComponent(button))
-							.addPreferredGap(ComponentPlacement.RELATED, 79, Short.MAX_VALUE)
+							.addComponent(InstructionsBtn)
+							.addPreferredGap(ComponentPlacement.RELATED, 115, Short.MAX_VALUE)
 							.addComponent(lblInsertGraphics)
 							.addGap(84)
 							.addGroup(groupLayout.createParallelGroup(Alignment.LEADING, false)
@@ -87,10 +79,7 @@ public class main extends JFrame {
 					.addComponent(lblMainMenu)
 					.addGap(21)
 					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-						.addGroup(groupLayout.createSequentialGroup()
-							.addComponent(InstructionsBtn, GroupLayout.PREFERRED_SIZE, 44, GroupLayout.PREFERRED_SIZE)
-							.addGap(13)
-							.addComponent(button, GroupLayout.PREFERRED_SIZE, 44, GroupLayout.PREFERRED_SIZE))
+						.addComponent(InstructionsBtn, GroupLayout.PREFERRED_SIZE, 44, GroupLayout.PREFERRED_SIZE)
 						.addGroup(groupLayout.createSequentialGroup()
 							.addComponent(PlayBtn, GroupLayout.PREFERRED_SIZE, 44, GroupLayout.PREFERRED_SIZE)
 							.addGap(13)
@@ -101,15 +90,19 @@ public class main extends JFrame {
 		getContentPane().setLayout(groupLayout);
 	}
 
-	public static void createBoard() { // one of few intialize functions
-		
+	public void startGame() {
+	// needs to be filled in after we finish the rest	
 	}
 	
 	public static void restart(){ // reset function for replayability 
-		
+		/**
+		 * set global vars to zero, reset arrays, etc.
+		 */
+		// run startgame again
+	
 	}
 	
-	public static void draw() { //creates the frame - eclipse doesnt autocreate this method
+	public static void draw() { //creates the frame 
 			try {
 				
 

@@ -19,7 +19,7 @@ public class GameScreen extends JFrame {
     private JButton[][] tiles = new JButton[5][5];
     private ImageIcon[][] imageGrid = new ImageIcon[5][5];
     private ImageIcon testIcon = new ImageIcon("image.png");
-    
+    ImageIcon pokeball = new ImageIcon("Pokeball.PNG");
     
 
     
@@ -32,7 +32,7 @@ public class GameScreen extends JFrame {
 			for(int j = 0; j < 5; j++) {
 
 				tiles[i][j] = new JButton();
-				
+				tiles[i][j].setIcon(pokeball);
 				this.add(tiles[i][j]);
 			}
 		}

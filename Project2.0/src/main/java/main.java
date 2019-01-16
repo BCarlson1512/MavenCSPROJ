@@ -2,9 +2,11 @@ import javax.swing.JFrame;
 import javax.swing.JButton;
 
 import java.awt.Frame;
+import java.awt.Image;
 
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
+import javax.swing.ImageIcon;
 import javax.swing.LayoutStyle.ComponentPlacement;
 
 import javax.swing.JLabel;
@@ -90,17 +92,9 @@ public class main extends JFrame {
 		getContentPane().setLayout(groupLayout);
 	}
 
-	public void startGame() {
-	// needs to be filled in after we finish the rest	
-	}
+
 	
-	public static void restart(){ // reset function for replayability 
-		/**
-		 * set global vars to zero, reset arrays, etc.
-		 */
-		// run startgame again
 	
-	}
 	
 	public static void draw() { //creates the frame 
 			try {
@@ -108,6 +102,7 @@ public class main extends JFrame {
 
 				main frame = new main();
 				frame.setBounds(100, 100, 450, 400);
+				
 				frame.setVisible(true);
 			} catch (Exception e) {
 				e.printStackTrace();

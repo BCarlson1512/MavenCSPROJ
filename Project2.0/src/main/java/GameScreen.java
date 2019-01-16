@@ -21,7 +21,7 @@ public class GameScreen extends JFrame implements ActionListener{
     private JButton[][] tiles = new JButton[5][5];
     private ImageIcon[][] imageGrid = new ImageIcon[5][5];
     private ImageIcon testIcon = new ImageIcon("image.png");
-    BufferedImage pokeball = new ImageIcon("Pokeball.PNG");
+    ImageIcon pokeball = new ImageIcon("Pokeball.PNG");
     
     // locations of each individual piece, default will be set to the top middle three squares and bottom middle three squares
     private int P1xLoc1 = 1;
@@ -46,6 +46,8 @@ public class GameScreen extends JFrame implements ActionListener{
     ButtonHandler clickHandler = new ButtonHandler();
     
 	public GameScreen() { // constructor that creates the board
+		
+		System.out.println(System.getProperty("user.dir"));
 		
 		boardArea = getContentPane();
 		boardArea.setLayout(new GridLayout(5,5));

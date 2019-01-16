@@ -35,9 +35,9 @@ public class Battle {
 	        
 	        // the Pokemon attack each other until one of their HP are depleted
 	        while (pieceOne.getHP() > 0) {
-	        	pieceOne. attack(pieceTwo , pieceOne); // passing the other pokemon on as a parameter so that we can access both weaknesses
+	        	pieceOne. Battleattack(pieceTwo , pieceOne); // passing the other pokemon on as a parameter so that we can access both weaknesses
 	            if (pieceTwo.getHP() > 0 ) {
-	            	pieceTwo. attack(pieceOne, pieceTwo);
+	            	pieceTwo. Battleattack(pieceOne, pieceTwo);
 	            } else {
 	                // p2's HP is at 0
 	                System.out.println(String.format("The winner is %s!", pieceOne.getName()));
@@ -47,7 +47,7 @@ public class Battle {
 	        }
 	        
 	        // p1's HP is at 0
-	        System.out.println(String.format("The winner is %s!", p2.getName()));
+	        System.out.println(String.format("The winner is %s!", pieceTwo.getName()));
 	        System.out.println();
 	        
 	    }

@@ -42,6 +42,8 @@ public class GameScreen extends JFrame implements ActionListener{
     private int P2yLoc2 = 4;
     private int P2yLoc3 = 4;
 
+    Pokemon p1 = new GrassPokemon("Ivysaur", 10 , 10);
+    Pokemon p2 = new WaterPokemon("Mudkip", 5 , 5 );
     
     ButtonHandler clickHandler = new ButtonHandler();
     
@@ -152,8 +154,9 @@ public class GameScreen extends JFrame implements ActionListener{
 	}
 	
 	public void runBattle() {
-		System.out.println("success"); // testing first
-		
+		System.out.println("Loading Battle.. \n"); // testing first
+		Battle contestedPoint = new Battle(p1, p2);
+		contestedPoint.doBattle();
 		
 	}
 	

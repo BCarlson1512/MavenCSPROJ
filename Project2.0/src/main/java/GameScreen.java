@@ -64,12 +64,12 @@ public class GameScreen extends JFrame implements ActionListener{
 		// locations of the players pieces
 		
 		tiles[P1xLoc1][P1yLoc1].setIcon(pokeball);
-		tiles[P1xLoc2][P1yLoc2].setIcon(pokeball);
-		tiles[P1xLoc3][P1yLoc3].setIcon(pokeball);
+		//tiles[P1xLoc2][P1yLoc2].setIcon(pokeball);
+		//tiles[P1xLoc3][P1yLoc3].setIcon(pokeball);
 		
 		tiles[P2xLoc1][P2yLoc1].setIcon(pokeball);
-		tiles[P2xLoc2][P2yLoc2].setIcon(pokeball);
-		tiles[P2xLoc3][P2yLoc3].setIcon(pokeball);
+		//tiles[P2xLoc2][P2yLoc2].setIcon(pokeball);
+		//tiles[P2xLoc3][P2yLoc3].setIcon(pokeball);
 
 		
 		 //... 
@@ -81,11 +81,11 @@ public class GameScreen extends JFrame implements ActionListener{
 		int rowDiff = Math.abs(x - P1xLoc1);
 		int colDiff = Math.abs(y - P1yLoc1);
 		
-		if((rowDiff == 1 ) && (colDiff == 2)) {
+		if((rowDiff == 1 ) && (colDiff == 1)) {
 			return true;
 		} 
 		
-		if((rowDiff == 2 ) && (colDiff == 1)) {
+		if((rowDiff == 1 ) && (colDiff == 1)) {
 			return true;
 		}
 		
@@ -96,11 +96,13 @@ public class GameScreen extends JFrame implements ActionListener{
 	public void movePiece(int x, int y, int piecenum) {
 		// check for validity in moves
 		
+		//System.out.println(validMove(x,y));
+		
 		if(validMove(x, y) == false) {
 			return;
 		}
 		
-		tiles[0][y - 1].setIcon(null); // remove the existing icon
+		tiles[P1xLoc1][P1yLoc1].setIcon(null); // remove the existing icon
 		tiles[x][y].setIcon(pokeball);
 		
 		

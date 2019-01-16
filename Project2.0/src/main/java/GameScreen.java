@@ -88,7 +88,7 @@ public class GameScreen extends JFrame implements ActionListener{
 					return false;
 				}
 				
-				if(boardGrid[x][y] == 1) { // Two pieces on the tile
+				if(boardGrid[x][y] == 1) { // Two pieces on the tile start the battle
 					return true;
 				}
 				
@@ -153,6 +153,8 @@ public class GameScreen extends JFrame implements ActionListener{
 	
 	public void runBattle() {
 		System.out.println("success"); // testing first
+		
+		
 	}
 	
 	private class ButtonHandler implements ActionListener{ // handles any button click

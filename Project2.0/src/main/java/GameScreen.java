@@ -59,12 +59,15 @@ public class GameScreen extends JFrame implements ActionListener{
 			}
 		}
 		
+		// locations of the players pieces
 		
-		for(int i = 0; i <=3; i++) { // set icons for future pieces
-			tiles[0][i + 1].setIcon(pokeball);
-			tiles[6][i + 1].setIcon(pokeball);
-		}
+		tiles[P1xLoc1][P1yLoc1].setIcon(pokeball);
+		tiles[P1xLoc2][P1yLoc2].setIcon(pokeball);
+		tiles[P1xLoc3][P1yLoc3].setIcon(pokeball);
 		
+		tiles[P2xLoc1][P2yLoc1].setIcon(pokeball);
+		tiles[P2xLoc2][P2yLoc2].setIcon(pokeball);
+		tiles[P2xLoc3][P2yLoc3].setIcon(pokeball);
 
 		
 		 //... 
@@ -72,7 +75,24 @@ public class GameScreen extends JFrame implements ActionListener{
 		
 	}	// this is the place where the game will be played, this gui element just has to be called on by main
 
+	public boolean validMove(int x, int y) {
+		
+		
+		
+		return false;
+	}
+	
 	public void movePiece(int x, int y) {
+		// check for validity in moves
+		
+		if(validMove(x, y) == false) {
+			return;
+		}
+		
+		tiles[0][y - 1].setIcon(null); // remove the existing icon
+		tiles[x][y].setIcon(pokeball);
+		
+		
 		
 	}
 	

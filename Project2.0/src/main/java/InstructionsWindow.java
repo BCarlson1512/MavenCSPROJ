@@ -16,11 +16,14 @@ public class InstructionsWindow extends JFrame {
 		
 		instructionsArea.setText("Game Rules: \n"
 								+ "This game is like chess but with a twist \n"
+								+ "\n"
 								+ "You move your players until you try to contest  \n"
 								+ "a square, at that point it becomes a battle  \n"
 								+ "for who keeps their piece \n"
-								+ "A winner is chosen when only one player has pieces on the board\n"
-								+ "or until someone forfeits");
+								+ "\n"
+								+ "To win the game, you need to clear the board of AI pokemon\n"
+								+ "\n"
+								+ "Losing is caused when your pokemon dies\n");
 		
 		JLabel lblInstructions = new JLabel("Instructions");
 		lblInstructions.setFont(new Font("Lucida Sans", Font.BOLD, 17));

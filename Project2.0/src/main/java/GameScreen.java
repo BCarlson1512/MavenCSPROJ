@@ -184,14 +184,14 @@ public class GameScreen extends JFrame implements ActionListener{
 	private class ButtonHandler implements ActionListener{ // handles any button click
 		
 		public void actionPerformed(ActionEvent e) {
-			Object src = e.getSource();
+			Object src = e.getSource(); // get where the user clicks from
 			
-			for(int i = 0; i < 5; i++) {
+			for(int i = 0; i < 5; i++) { // find the tile where the click was made
 				for(int j = 0; j < 5; j++) {
 					if(src == tiles[i][j]) {
 						
-						movePiece(i,j,0);
-						return;
+						movePiece(i,j,0); // pass it to the movepiece function
+						return; // stop running the loops after its been found
 					}
 
 				}

@@ -24,22 +24,18 @@ public class GameScreen extends JFrame implements ActionListener{
     
     // locations of each individual piece, default will be set to the top middle three squares and bottom middle three squares
     private int P1xLoc1 = 1;
-    private int P1xLoc2 = 2;
-    private int P1xLoc3 = 3;
+
     
     private int P1yLoc1 = 0;
-    private int P1yLoc2 = 0;
-    private int P1yLoc3 = 0;
+
     
     
     // same applies for player 2
     private int P2xLoc1 = 1;
-    private int P2xLoc2 = 2;
-    private int P2xLoc3 = 3;
+
     
     private int P2yLoc1 = 4;
-    private int P2yLoc2 = 4;
-    private int P2yLoc3 = 4;
+
 
     Pokemon p1 = new GrassPokemon("Ivysaur", 10 , 10);
     Pokemon p2 = new WaterPokemon("Mudkip", 5 , 5 );

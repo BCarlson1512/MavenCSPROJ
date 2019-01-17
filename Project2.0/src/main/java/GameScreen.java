@@ -5,6 +5,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Random;
 
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.border.EmptyBorder;
@@ -27,21 +28,18 @@ public class GameScreen extends JFrame implements ActionListener{
     ImageIcon lapisArt = new ImageIcon("lapis-sprite.png");
     ImageIcon plexiArt = new ImageIcon("plexi-sprite.png");
     ImageIcon virusArt = new ImageIcon("virus-sprite.png");
-
+    
+    Random r = new Random();
     
     // locations of each individual piece, default will be set to the top middle three squares and bottom middle three squares
     private int P1xLoc1 = 1;
-
-    
     private int P1yLoc1 = 0;
-
-    
     
     // same applies for player 2
     private int P2xLoc1 = 1;
-
-    
-    private int P2yLoc1 = 4;
+    private int P2xLoc2 = 2;
+    private int P2yLoc1;
+    private int P2yLoc2;
 
 
     Pokemon p1 = new GrassPokemon("Ivysaur", 10 , 10);
@@ -65,17 +63,19 @@ public class GameScreen extends JFrame implements ActionListener{
 				this.add(tiles[i][j]);
 			}
 		}
+		P2yLoc2 = r.nextInt(4) + 1;
+		P2yLoc1 = r.nextInt(4) + 1;
 		
 		// locations of the players pieces
 		
 		tiles[P1xLoc1][P1yLoc1].setIcon(virusArt);
 		boardGrid[P1xLoc1][P1yLoc1] = 1;
-		//tiles[P1xLoc2][P1yLoc2].setIcon(pokeball);
-		//tiles[P1xLoc3][P1yLoc3].setIcon(pokeball);
-		
+
+		// set locations of the icons and integer array locations
 		tiles[P2xLoc1][P2yLoc1].setIcon(pokeball);
 		boardGrid[P2xLoc1][P2yLoc1] = 1;
-		//tiles[P2xLoc2][P2yLoc2].setIcon(pokeball);
+		tiles[P2xLoc2][P2yLoc2].setIcon(pokeball);
+		boardGrid[P2xLoc2][P2yLoc2] = 1;
 		//tiles[P2xLoc3][P2yLoc3].setIcon(pokeball);
 
 		
@@ -83,7 +83,6 @@ public class GameScreen extends JFrame implements ActionListener{
 		
 		
 	}	// this is the place where the game will be played, this gui element just has to be called on by main
-
 
 	public boolean checkCollision(int x, int y) { // this checks to see if two players are about to enter battle
 		for(int i = 0; i <= 4; i++) {
@@ -103,9 +102,7 @@ public class GameScreen extends JFrame implements ActionListener{
 		
 		return false;
 	}
-	
 
-	
 	public boolean validMove(int x, int y) {
 		int rowDiff = Math.abs(x - P1xLoc1);
 		int colDiff = Math.abs(y - P1yLoc1);

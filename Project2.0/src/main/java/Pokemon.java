@@ -67,9 +67,15 @@ public class Pokemon {
     	return name;
     }
     
-	public void Battleattack(Pokemon p, Pokemon m) { // pokemon m represents the defending pokemon
+    public void Battleattack(Pokemon p, Pokemon m) { // pokemon m represents the defending pokemon
     	int boostedDamage = (int) ((1.5 * this.Attack));
     	
+    	String pType, mType;
+    	pType = p.getType();
+    	mType = m.getType();
+    	
+    	System.out.println(pType);
+    	System.out.println(mType);
     	
     	if(p.getType().equals("Grass") && m.getWeakness().equals("Water")) { // grass attacking water gets a damage boost
     		

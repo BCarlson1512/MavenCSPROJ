@@ -7,6 +7,7 @@ public FirePokemon(String name, int hp, int cp) {
 	this.hp = hp;
 	this.Attack = cp;
 	this.Resistance = "Grass";
+	this.Type = "Fire";
 	this.Weakness = "Water";
 	}
 	
@@ -14,8 +15,9 @@ public FirePokemon(String name, int hp, int cp) {
 		this.name = name;
 		this.hp = 100;
 		this.Attack = 25;
-		this.Resistance = "Fire";
-		this.Weakness = "Grass";
+		this.Resistance = "Grass";
+		this.Type = "Fire";
+		this.Weakness = "Water";
 	}
 	
 	public boolean isDead(){
@@ -42,6 +44,7 @@ public FirePokemon(String name, int hp, int cp) {
 	}
 	
 	public String getWeakness() {
+		System.out.println(Weakness);
 		return Weakness;
 	}
 	

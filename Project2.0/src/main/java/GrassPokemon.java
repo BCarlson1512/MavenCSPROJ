@@ -7,6 +7,7 @@ public class GrassPokemon extends Pokemon{ // these are just placeholder names u
 		this.hp = hp;
 		this.Attack = cp;
 		this.Resistance = "Water";
+		this.Type = "Grass";
 		this.Weakness = "Fire";
 	}
 	
@@ -15,6 +16,7 @@ public class GrassPokemon extends Pokemon{ // these are just placeholder names u
 		this.hp = 150;
 		this.Attack = 10;
 		this.Resistance = "Water";
+		this.Type = "Grass";
 		this.Weakness = "Fire";
 	}
 	
@@ -42,6 +44,7 @@ public class GrassPokemon extends Pokemon{ // these are just placeholder names u
 	}
 	
 	public String getWeakness() {
+		
 		return Weakness;
 	}
 	

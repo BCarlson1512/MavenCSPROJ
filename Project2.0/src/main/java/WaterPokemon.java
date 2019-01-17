@@ -7,6 +7,7 @@ public class WaterPokemon extends Pokemon{// these are just placeholder names un
 		this.hp = hp;
 		this.Attack = cp;
 		this.Resistance = "Fire";
+		this.Type = "Water";
 		this.Weakness = "Grass";
 	}
 	
@@ -15,6 +16,7 @@ public class WaterPokemon extends Pokemon{// these are just placeholder names un
 		this.hp = 125;
 		this.Attack = 15;
 		this.Resistance = "Fire";
+		this.Type = "Water";
 		this.Weakness = "Grass";
 	}
 	
@@ -42,6 +44,7 @@ public class WaterPokemon extends Pokemon{// these are just placeholder names un
 	}
 	
 	public String getWeakness() {
+		System.out.println(Weakness);
 		return Weakness;
 	}
 	

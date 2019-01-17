@@ -19,8 +19,6 @@ public class GameScreen extends JFrame implements ActionListener{
 	// arrays that will be used within the program
     private int[][] boardGrid = new int[5][5];
     private JButton[][] tiles = new JButton[5][5];
-    private ImageIcon[][] imageGrid = new ImageIcon[5][5];
-    private ImageIcon testIcon = new ImageIcon("image.png");
     ImageIcon pokeball = new ImageIcon("Pokeball.PNG");
 
     
@@ -168,12 +166,18 @@ public class GameScreen extends JFrame implements ActionListener{
 			for(int j = 0; j < 4; j++) {
 				
 			boardGrid[i][j] = 0; // reset the games grid
-			
+			tiles[i][j].setIcon(null); // set the icons to nothing
 				
 			}
 		}
 		
-		dispose();
+		GameOverScreen gameOver = new GameOverScreen();
+		
+		gameOver.setBounds(200, 200, 450, 450); // open the game over window
+		gameOver.setVisible(true);
+		
+		
+		dispose(); // delete the game screen window
 		
 	}
 	

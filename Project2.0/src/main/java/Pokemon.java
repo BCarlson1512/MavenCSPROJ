@@ -8,7 +8,7 @@ public class Pokemon {
 	protected String Type;
 	protected int hp;
 	protected int Attack;
-	protected boolean gameOver = false;
+
 
 	/**
 	public Pokemon(String name, int hp, int cp) {
@@ -93,7 +93,7 @@ public class Pokemon {
             
             if (p.getHP() < 0 ) {
                 p.changeHP(0);
-                gameOver = true;
+
             }
     		
             System.out.println(String.format("*Its Super Effective!* %s attacks %s. %s's hp is now %d.", this.name, p.getName(), p.getName(), p.getHP()));
@@ -104,7 +104,7 @@ public class Pokemon {
             
             if (p.getHP() < 0 ) {
                 p.changeHP(0);
-                gameOver = true;
+       
             }
     		
             System.out.println(String.format("*Its Super Effective!* %s attacks %s. %s's hp is now %d.", this.name, p.getName(), p.getName(), p.getHP()));
@@ -115,7 +115,7 @@ public class Pokemon {
             
             if (p.getHP() < 0 ) {
                 p.changeHP(0);
-                gameOver = true;
+               
             }
     		
             
@@ -127,7 +127,7 @@ public class Pokemon {
             
             if (p.getHP() < 0 ) {
                 p.changeHP(0);
-                gameOver = true;
+              
             }
     		
             
@@ -139,7 +139,7 @@ public class Pokemon {
             
             if (p.getHP() < 0 ) {
                 p.changeHP(0);
-                gameOver = true;
+              
             }
     		
             
@@ -152,7 +152,7 @@ public class Pokemon {
             
             if (p.getHP() < 0 ) {
                 p.changeHP(0);
-                gameOver = true;
+               
             }
     		
             
@@ -164,7 +164,7 @@ public class Pokemon {
             
             if (p.getHP() < 0 ) {
                 p.changeHP(0);
-                gameOver = true;
+             
             }	
     	
             System.out.println(String.format("%s attacks %s. %s's hp is now %d.", this.name, p.getName(), p.getName(), p.getHP()));

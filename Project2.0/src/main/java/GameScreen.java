@@ -22,6 +22,7 @@ public class GameScreen extends JFrame implements ActionListener{
     private ImageIcon[][] imageGrid = new ImageIcon[5][5];
     private ImageIcon testIcon = new ImageIcon("image.png");
     ImageIcon pokeball = new ImageIcon("Pokeball.PNG");
+
     
     // locations of each individual piece, default will be set to the top middle three squares and bottom middle three squares
     private int P1xLoc1 = 1;
@@ -161,7 +162,18 @@ public class GameScreen extends JFrame implements ActionListener{
 	}
 	
 	public void endGame() { // Closes the game screen, shows game over window
+
+		for(int i = 0; i < 4; i++) {
+			
+			for(int j = 0; j < 4; j++) {
+				
+			boardGrid[i][j] = 0; // reset the games grid
+			
+				
+			}
+		}
 		
+		dispose();
 		
 	}
 	

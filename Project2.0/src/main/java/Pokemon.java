@@ -8,6 +8,7 @@ public class Pokemon {
 	protected String Type;
 	protected int hp;
 	protected int Attack;
+	protected boolean gameOver = false;
 
 	/**
 	public Pokemon(String name, int hp, int cp) {
@@ -58,6 +59,9 @@ public class Pokemon {
         }
     }
 	
+    public String getResistance() {
+    	return Resistance;
+    }
     
     public String getWeakness(){
     	return Weakness;
@@ -75,15 +79,13 @@ public class Pokemon {
     	// reduced damage when attacking resistances
     	int reducedDamage = (int) ((0.75 * this.Attack));
     	
-    	
+    	// string variables rather than using the getX() method
     	String pType, mType, pWeak, mWeak;
     	pType = p.getType();
     	mType = m.getType();
     	pWeak = p.getWeakness();
     	mWeak = m.getWeakness();
 
-    	System.out.println(pType);
-    	System.out.println(mType);
     	
     	if(pType.equals("Grass") && mWeak.equals("Water")) { // grass attacking water gets a damage boost
     		
@@ -91,9 +93,10 @@ public class Pokemon {
             
             if (p.getHP() < 0 ) {
                 p.changeHP(0);
+                gameOver = true;
             }
     		
-            System.out.println(String.format("*Weakness Advantage!* %s attacks %s. %s's hp is now %d.", this.name, p.getName(), p.getName(), p.getHP()));
+            System.out.println(String.format("*Its Super Effective!* %s attacks %s. %s's hp is now %d.", this.name, p.getName(), p.getName(), p.getHP()));
             
     	}else if (pType.equals("Fire") && mWeak.equals("Grass")) { // fire attacking grass gets a boost
     		
@@ -101,9 +104,10 @@ public class Pokemon {
             
             if (p.getHP() < 0 ) {
                 p.changeHP(0);
+                gameOver = true;
             }
     		
-            System.out.println(String.format("*Weakness Advantage!* %s attacks %s. %s's hp is now %d.", this.name, p.getName(), p.getName(), p.getHP()));
+            System.out.println(String.format("*Its Super Effective!* %s attacks %s. %s's hp is now %d.", this.name, p.getName(), p.getName(), p.getHP()));
             
     	}else if(pType.equals("Water") && mWeak.equals("Fire")) { // water attacking fire also gets a boost in turn
     		
@@ -111,10 +115,48 @@ public class Pokemon {
             
             if (p.getHP() < 0 ) {
                 p.changeHP(0);
+                gameOver = true;
             }
     		
             
-            System.out.println(String.format("*Weakness Advantage!* %s attacks %s. %s's hp is now %d.", this.name, p.getName(), p.getName(), p.getHP()));
+            System.out.println(String.format("*Its Super Effective!* %s attacks %s. %s's hp is now %d.", this.name, p.getName(), p.getName(), p.getHP()));
+    		
+    	}else if((pType.equals("Grass")) && (m.getResistance().equals(pWeak))){// resistance cases case 1: grass type attacks fire:
+    		
+    		p.changeHP(p.getHP() - reducedDamage);
+            
+            if (p.getHP() < 0 ) {
+                p.changeHP(0);
+                gameOver = true;
+            }
+    		
+            
+            System.out.println(String.format("*Its Super Effective!* %s attacks %s. %s's hp is now %d.", this.name, p.getName(), p.getName(), p.getHP()));
+    		
+    	}else if((pType.equals("Fire")) && (m.getResistance().equals(pWeak))){// resistance cases case 1: Fire type attacks Water:
+    		
+    		p.changeHP(p.getHP() - reducedDamage);
+            
+            if (p.getHP() < 0 ) {
+                p.changeHP(0);
+                gameOver = true;
+            }
+    		
+            
+            System.out.println(String.format("*Its Super Effective!* %s attacks %s. %s's hp is now %d.", this.name, p.getName(), p.getName(), p.getHP()));
+    		
+    	}else if((pType.equals("Water")) && (m.getResistance().equals(pWeak))){// resistance cases case 1: Water type attacks grass:
+    		
+    		
+    		p.changeHP(p.getHP() - reducedDamage);
+            
+            if (p.getHP() < 0 ) {
+                p.changeHP(0);
+                gameOver = true;
+            }
+    		
+            
+            System.out.println(String.format("*Its Super Effective!* %s attacks %s. %s's hp is now %d.", this.name, p.getName(), p.getName(), p.getHP()));
     		
     	}else { // if none of these cases are satisifed, run the default damage case (1x multiplier)
         	
@@ -122,6 +164,7 @@ public class Pokemon {
             
             if (p.getHP() < 0 ) {
                 p.changeHP(0);
+                gameOver = true;
             }	
     	
             System.out.println(String.format("%s attacks %s. %s's hp is now %d.", this.name, p.getName(), p.getName(), p.getHP()));

@@ -160,6 +160,11 @@ public class GameScreen extends JFrame implements ActionListener{
 		
 	}
 	
+	public void endGame() { // Closes the game screen, shows game over window
+		
+		
+	}
+	
 	private class ButtonHandler implements ActionListener{ // handles any button click
 		
 		public void actionPerformed(ActionEvent e) {
@@ -182,7 +187,7 @@ public class GameScreen extends JFrame implements ActionListener{
 	
 
 
-	public void actionPerformed(ActionEvent e) {
+	public void actionPerformed(ActionEvent e) { // to avoid errors, blank action peformed for the top class
 		// TODO Auto-generated method stub
 		
 	}

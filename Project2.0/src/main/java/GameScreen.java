@@ -160,7 +160,7 @@ public class GameScreen extends JFrame implements ActionListener{
 			// remove the piece from the other zone
 			
 			tiles[P1xLoc1][P1yLoc1].setIcon(null); // remove the existing icon
-			tiles[x][y].setIcon(virusArt);
+			tiles[x][y].setIcon(p1.getArt());
 			
 			
 			// reset the location of the piece

@@ -34,6 +34,7 @@ public class GameScreen extends JFrame implements ActionListener{
     // locations of each individual piece, default will be set to the top middle three squares and bottom middle three squares
     private int P1xLoc1 = 1;
     private int P1yLoc1 = 0;
+    private int numPokemon = 0; // number of non player controlled pokemon
     
     // same applies for player 2
     private int P2xLoc1;
@@ -67,10 +68,18 @@ public class GameScreen extends JFrame implements ActionListener{
 		// randomize the locations of the x and y locations of the players that need to be eliminated
 		P2xLoc1 = r.nextInt(4);
 		P2xLoc2 = r.nextInt(4);
+	
+		numPokemon++; // Tell the game that there is another pokemon on the field
 		
 		P2yLoc2 = r.nextInt(4) + 1;
 		P2yLoc1 = r.nextInt(4) + 1;
 		
+		numPokemon++; // Tell the game that there is another pokemon on the field
+		
+		if((P2xLoc1 == P2xLoc2) && (P2yLoc1 == P2yLoc2)) {// re roll the x and y values if they are duplicates
+			P2xLoc1 = r.nextInt(4);
+			
+		}
 	
 		// locations of the players pieces
 		
@@ -174,7 +183,13 @@ public class GameScreen extends JFrame implements ActionListener{
 
 		if(contestedPoint.doBattle() == 1) { // p1 wins the fight
 			removePiece(x , y);
-		}else if(contestedPoint.doBattle() == 2) { // p2 wins the fight
+			numPokemon--;
+			
+			if(numPokemon == 0) { // no pokemon on the field triggers and end game
+				endGame();
+			}
+			
+		}else if((contestedPoint.doBattle() == 2) ||(numPokemon == 0)) { // p2 wins the fight, or there are no AI pokemon on the field
 			
 			endGame(); // end the game
 		}

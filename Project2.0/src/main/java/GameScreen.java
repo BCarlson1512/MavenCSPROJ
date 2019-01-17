@@ -20,6 +20,13 @@ public class GameScreen extends JFrame implements ActionListener{
     private int[][] boardGrid = new int[5][5];
     private JButton[][] tiles = new JButton[5][5];
     ImageIcon pokeball = new ImageIcon("Pokeball.PNG");
+    Color olive = new Color(29,33,13);
+    
+    ImageIcon elementArt = new ImageIcon("element-sprite.png");
+    ImageIcon havocArt = new ImageIcon("havoc-sprite.png");
+    ImageIcon lapisArt = new ImageIcon("lapis-sprite.png");
+    ImageIcon plexiArt = new ImageIcon("plexi-sprite.png");
+    ImageIcon virusArt = new ImageIcon("virus-sprite.png");
 
     
     // locations of each individual piece, default will be set to the top middle three squares and bottom middle three squares
@@ -53,14 +60,15 @@ public class GameScreen extends JFrame implements ActionListener{
 			for(int j = 0; j < 5; j++) {
 
 				tiles[i][j] = new JButton();
-				tiles[i][j].addActionListener(clickHandler);;
+				tiles[i][j].addActionListener(clickHandler);
+				tiles[i][j].setBackground(olive);;
 				this.add(tiles[i][j]);
 			}
 		}
 		
 		// locations of the players pieces
 		
-		tiles[P1xLoc1][P1yLoc1].setIcon(pokeball);
+		tiles[P1xLoc1][P1yLoc1].setIcon(virusArt);
 		boardGrid[P1xLoc1][P1yLoc1] = 1;
 		//tiles[P1xLoc2][P1yLoc2].setIcon(pokeball);
 		//tiles[P1xLoc3][P1yLoc3].setIcon(pokeball);
@@ -138,7 +146,7 @@ public class GameScreen extends JFrame implements ActionListener{
 			// remove the piece from the other zone
 			
 			tiles[P1xLoc1][P1yLoc1].setIcon(null); // remove the existing icon
-			tiles[x][y].setIcon(pokeball);
+			tiles[x][y].setIcon(virusArt);
 			
 			
 			// reset the location of the piece

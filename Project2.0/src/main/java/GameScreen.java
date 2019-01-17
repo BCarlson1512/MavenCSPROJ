@@ -84,6 +84,7 @@ public class GameScreen extends JFrame implements ActionListener{
 		
 	}	// this is the place where the game will be played, this gui element just has to be called on by main
 
+
 	public boolean checkCollision(int x, int y) { // this checks to see if two players are about to enter battle
 		for(int i = 0; i <= 4; i++) {
 			
@@ -96,9 +97,7 @@ public class GameScreen extends JFrame implements ActionListener{
 				if(boardGrid[x][y] == 1) { // Two pieces on the tile start the battle
 					return true;
 				}
-				
-
-				
+	
 			}
 		}
 		
@@ -123,7 +122,7 @@ public class GameScreen extends JFrame implements ActionListener{
 		
 	}
 	
-	public void movePiece(int x, int y, int piecenum) {
+	public void movePiece(int x, int y) {
 		// check for validity in moves
 		
 		//System.out.println(validMove(x,y));
@@ -134,6 +133,7 @@ public class GameScreen extends JFrame implements ActionListener{
 		
 		if((validMove(x, y) == true) && (checkCollision(x,y) == true)) {
 			runBattle(); // run the battle simulation between two pieces
+			removePiece(x, y);
 		}
 		
 		if((validMove(x, y) == true) && (checkCollision(x,y) == false)) {
@@ -156,10 +156,20 @@ public class GameScreen extends JFrame implements ActionListener{
 
 	}
 	
+	public void removePiece(int x, int y) { 
+		// removes the piece art and removes the piece from the game
+		// used when a battle is won/lost
+		
+		tiles[x][y].setIcon(virusArt);
+		boardGrid[x][y] = boardGrid[x][y] - 1;
+		
+	}
+	
 	public void runBattle() {
 		System.out.println("Loading Battle.. \n"); // testing first
 		Battle contestedPoint = new Battle(p1, p2);
 		contestedPoint.doBattle();
+
 		
 	}
 	
@@ -194,7 +204,7 @@ public class GameScreen extends JFrame implements ActionListener{
 				for(int j = 0; j < 5; j++) {
 					if(src == tiles[i][j]) {
 						
-						movePiece(i,j,0); // pass it to the movepiece function
+						movePiece(i,j); // pass it to the movepiece function
 						return; // stop running the loops after its been found
 					}
 

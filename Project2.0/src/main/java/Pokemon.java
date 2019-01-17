@@ -68,16 +68,24 @@ public class Pokemon {
     }
     
     public void Battleattack(Pokemon p, Pokemon m) { // pokemon m represents the defending pokemon
+    	
+    	// boosted damage for strengths
     	int boostedDamage = (int) ((1.5 * this.Attack));
     	
-    	String pType, mType;
+    	// reduced damage when attacking resistances
+    	int reducedDamage = (int) ((0.75 * this.Attack));
+    	
+    	
+    	String pType, mType, pWeak, mWeak;
     	pType = p.getType();
     	mType = m.getType();
-    	
+    	pWeak = p.getWeakness();
+    	mWeak = m.getWeakness();
+
     	System.out.println(pType);
     	System.out.println(mType);
     	
-    	if(p.getType().equals("Grass") && m.getWeakness().equals("Water")) { // grass attacking water gets a damage boost
+    	if(pType.equals("Grass") && mWeak.equals("Water")) { // grass attacking water gets a damage boost
     		
     		p.changeHP(p.getHP() - boostedDamage);
             
@@ -87,7 +95,7 @@ public class Pokemon {
     		
             System.out.println(String.format("*Weakness Advantage!* %s attacks %s. %s's hp is now %d.", this.name, p.getName(), p.getName(), p.getHP()));
             
-    	}else if (p.getType().equals("Fire") && m.getWeakness().equals("Grass")) { // fire attacking grass gets a boost
+    	}else if (pType.equals("Fire") && mWeak.equals("Grass")) { // fire attacking grass gets a boost
     		
     		p.changeHP(p.getHP() - boostedDamage);
             
@@ -97,7 +105,7 @@ public class Pokemon {
     		
             System.out.println(String.format("*Weakness Advantage!* %s attacks %s. %s's hp is now %d.", this.name, p.getName(), p.getName(), p.getHP()));
             
-    	}else if(p.getType().equals("Water") && m.getWeakness().equals("Fire")) { // water attacking fire also gets a boost in turn
+    	}else if(pType.equals("Water") && mWeak.equals("Fire")) { // water attacking fire also gets a boost in turn
     		
     		p.changeHP(p.getHP() - boostedDamage);
             

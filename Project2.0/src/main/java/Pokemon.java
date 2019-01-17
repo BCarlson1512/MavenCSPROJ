@@ -1,4 +1,4 @@
-
+import javax.swing.ImageIcon;
 
 public class Pokemon {
 
@@ -8,6 +8,7 @@ public class Pokemon {
 	protected String Type;
 	protected int hp;
 	protected int Attack;
+	protected ImageIcon art;
 
 
 	/**
@@ -27,17 +28,6 @@ public class Pokemon {
 	}
 	**/
 	
-	public boolean isDead(){ // checks for death, returns
-		int hp = getHP();
-		
-		if(hp < 0) {
-			return false;
-		}else {
-			return true;
-		}
-		
-	}
-	
 	public int getAttack(){
 		return Attack;
 	}
@@ -45,7 +35,6 @@ public class Pokemon {
 	public int getHP() {
 		return hp;
 	}
-	
 	
 	public String getType() {
 		return Type;
@@ -69,6 +58,10 @@ public class Pokemon {
     
     public String getName() {
     	return name;
+    }
+    
+    public ImageIcon getArt() {
+    	return art;
     }
     
     public void Battleattack(Pokemon p, Pokemon m) { // pokemon m represents the defending pokemon

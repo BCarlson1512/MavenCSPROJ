@@ -23,6 +23,9 @@ public class GameScreen extends JFrame implements ActionListener{
     ImageIcon pokeball = new ImageIcon("Pokeball.PNG");
     Color olive = new Color(29,33,13);
     
+    
+    // Art for the pokemon
+    
     ImageIcon elementArt = new ImageIcon("element-sprite.png");
     ImageIcon havocArt = new ImageIcon("havoc-sprite.png");
     ImageIcon lapisArt = new ImageIcon("lapis-sprite.png");
@@ -43,8 +46,8 @@ public class GameScreen extends JFrame implements ActionListener{
     private int P2yLoc2;
 
 
-    Pokemon p1 = new GrassPokemon("Ivysaur", 10 , 10);
-    Pokemon p2 = new WaterPokemon("Mudkip", 5 , 5 );
+    Pokemon p1 = new GrassPokemon("lapis", lapisArt);
+    Pokemon p2 = new WaterPokemon("element", elementArt);
     
     ButtonHandler clickHandler = new ButtonHandler();
     
@@ -83,7 +86,7 @@ public class GameScreen extends JFrame implements ActionListener{
 	
 		// locations of the players pieces
 		
-		tiles[P1xLoc1][P1yLoc1].setIcon(virusArt);
+		tiles[P1xLoc1][P1yLoc1].setIcon(p1.getArt());
 		boardGrid[P1xLoc1][P1yLoc1] = 1;
 
 		// set locations of the icons and integer array locations

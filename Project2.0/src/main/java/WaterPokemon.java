@@ -1,23 +1,25 @@
-
+import javax.swing.ImageIcon;
 
 public class WaterPokemon extends Pokemon{// these are just placeholder names until we decide on types
 	
-	public WaterPokemon(String name, int hp, int cp) {
+	public WaterPokemon(String name, int hp, int cp, ImageIcon art) {
 		this.name = name;
 		this.hp = hp;
 		this.Attack = cp;
 		this.Resistance = "Fire";
 		this.Type = "Water";
 		this.Weakness = "Grass";
+		this.art = art;
 	}
 	
-	public WaterPokemon(String name) {
+	public WaterPokemon(String name, ImageIcon art) {
 		this.name = name;
 		this.hp = 125;
 		this.Attack = 15;
 		this.Resistance = "Fire";
 		this.Type = "Water";
 		this.Weakness = "Grass";
+		this.art = art;
 	}
 	
 	public boolean isDead(){

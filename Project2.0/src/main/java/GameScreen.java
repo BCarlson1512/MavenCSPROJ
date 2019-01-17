@@ -36,8 +36,8 @@ public class GameScreen extends JFrame implements ActionListener{
     private int P1yLoc1 = 0;
     
     // same applies for player 2
-    private int P2xLoc1 = 1;
-    private int P2xLoc2 = 2;
+    private int P2xLoc1;
+    private int P2xLoc2;
     private int P2yLoc1;
     private int P2yLoc2;
 
@@ -63,9 +63,15 @@ public class GameScreen extends JFrame implements ActionListener{
 				this.add(tiles[i][j]);
 			}
 		}
+		
+		// randomize the locations of the x and y locations of the players that need to be eliminated
+		P2xLoc1 = r.nextInt(4);
+		P2xLoc2 = r.nextInt(4);
+		
 		P2yLoc2 = r.nextInt(4) + 1;
 		P2yLoc1 = r.nextInt(4) + 1;
 		
+	
 		// locations of the players pieces
 		
 		tiles[P1xLoc1][P1yLoc1].setIcon(virusArt);

@@ -28,7 +28,7 @@ public class Battle {
 		this.pieceTwo = secondPkmn;
 	}
 	
-	 public void doBattle() {
+	 public int doBattle() {
 	        
 	        System.out.println(String.format("Begin Battle: %s vs. %s!", pieceOne.getName(), pieceTwo.getName()));
 	        System.out.println();
@@ -42,13 +42,19 @@ public class Battle {
 	                // p2's HP is at 0
 	                System.out.println(String.format("The winner is %s!", pieceOne.getName()));
 	                System.out.println();
-	                return;
+	                
+	                
+	                // return a one to the program, to signify that player one was successful in winning
+	                return 1;
 	            }
 	        }
 	        
+	        
 	        // p1's HP is at 0
 	        System.out.println(String.format("The winner is %s!", pieceTwo.getName()));
-	        System.out.println();
+	        
+	        // return 2 since the ai was successful in winning
+	        return 2;
 	        
 	    }
 	

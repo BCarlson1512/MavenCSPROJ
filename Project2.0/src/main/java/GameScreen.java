@@ -135,8 +135,7 @@ public class GameScreen extends JFrame implements ActionListener{
 		}
 		
 		if((validMove(x, y) == true) && (checkCollision(x,y) == true)) {
-			runBattle(); // run the battle simulation between two pieces
-			removePiece(x, y);
+			runBattle(x, y); // run the battle simulation between two pieces
 		}
 		
 		if((validMove(x, y) == true) && (checkCollision(x,y) == false)) {
@@ -168,11 +167,17 @@ public class GameScreen extends JFrame implements ActionListener{
 		
 	}
 	
-	public void runBattle() {
+	public void runBattle(int x, int y) {
 		System.out.println("Loading Battle.. \n"); // testing first
 		Battle contestedPoint = new Battle(p1, p2);
 		contestedPoint.doBattle();
 
+		if(contestedPoint.doBattle() == 1) { // p1 wins the fight
+			removePiece(x , y);
+		}else if(contestedPoint.doBattle() == 2) { // p2 wins the fight
+			
+			endGame(); // end the game
+		}
 		
 	}
 	

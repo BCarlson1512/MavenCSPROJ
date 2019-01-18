@@ -256,7 +256,7 @@ public class GameScreen extends JFrame implements ActionListener{
 	public void runBattle(int x, int y) {
 		System.out.println("Loading Battle.. \n"); // testing first
 		Battle contestedPoint = new Battle(p1, p2);
-		contestedPoint.doBattle();
+		//contestedPoint.doBattle();
 
 		if(contestedPoint.doBattle() == 1) { // p1 wins the fight
 			removePiece(x , y);

@@ -17,12 +17,16 @@ public class GameScreen extends JFrame implements ActionListener{
 	
 	private Container boardArea;
 	
+	main Main = new main();
+	int pChoice = main.playerChoice;
+	
 	// arrays that will be used within the program
     private int[][] boardGrid = new int[5][5];
     private JButton[][] tiles = new JButton[5][5];
     ImageIcon pokeball = new ImageIcon("Pokeball.PNG");
     Color olive = new Color(29,33,13);
     
+
     
     // Art for the pokemon
     
@@ -48,10 +52,15 @@ public class GameScreen extends JFrame implements ActionListener{
 
     Pokemon p1 = new GrassPokemon("lapis", lapisArt);
     Pokemon p2 = new WaterPokemon("element", elementArt);
+    Pokemon p3 = new FirePokemon("havoc", havocArt);
+    Pokemon p4 = new GrassPokemon("plexi", plexiArt);
+    Pokemon p5 = new WaterPokemon("virus", virusArt);
     
     ButtonHandler clickHandler = new ButtonHandler();
     
 	public GameScreen() { // constructor that creates the board
+
+
 		
 		System.out.println(System.getProperty("user.dir"));
 		
@@ -84,10 +93,46 @@ public class GameScreen extends JFrame implements ActionListener{
 			
 		}
 	
-		// locations of the players pieces
+		// Case statement for when the player chooses a piece
 		
-		tiles[P1xLoc1][P1yLoc1].setIcon(p1.getArt());
-		boardGrid[P1xLoc1][P1yLoc1] = 1;
+		switch(pChoice) { // get the art and data for the player's choice of pokemon
+		case 1: pChoice = 1;
+		
+			tiles[P1xLoc1][P1yLoc1].setIcon(p1.getArt());
+			
+			break;
+		case 2: pChoice = 2;
+		
+			tiles[P1xLoc1][P1yLoc1].setIcon(p2.getArt());
+			
+			break;
+		case 3: pChoice = 3;
+		
+			tiles[P1xLoc1][P1yLoc1].setIcon(p3.getArt());
+			
+			break;
+		case 4: pChoice = 4;
+		
+			tiles[P1xLoc1][P1yLoc1].setIcon(p4.getArt());
+			
+			break;
+			
+		case 5: pChoice = 5;
+			tiles[P1xLoc1][P1yLoc1].setIcon(p5.getArt());
+			
+			break;
+		case 6: pChoice = 0; // default to pokemon 1
+			tiles[P1xLoc1][P1yLoc1].setIcon(p1.getArt());
+			
+			break;
+		}
+		
+		
+		boardGrid[P1xLoc1][P1yLoc1] = 1; // tell the game that a player has spawned in
+		
+		
+		//tiles[P1xLoc1][P1yLoc1].setIcon(p1.getArt());
+		//boardGrid[P1xLoc1][P1yLoc1] = 1;
 
 		// set locations of the icons and integer array locations
 		tiles[P2xLoc1][P2yLoc1].setIcon(pokeball);
@@ -96,10 +141,6 @@ public class GameScreen extends JFrame implements ActionListener{
 		boardGrid[P2xLoc2][P2yLoc2] = 1;
 		//tiles[P2xLoc3][P2yLoc3].setIcon(pokeball);
 
-		
-		 //... 
-		
-		
 	}	// this is the place where the game will be played, this gui element just has to be called on by main
 
 	public boolean checkCollision(int x, int y) { // this checks to see if two players are about to enter battle
@@ -136,7 +177,7 @@ public class GameScreen extends JFrame implements ActionListener{
 		return false;
 		
 	}
-	
+
 	public void movePiece(int x, int y) {
 		// check for validity in moves
 		
@@ -156,12 +197,45 @@ public class GameScreen extends JFrame implements ActionListener{
 			
 			boardGrid[x][y] = boardGrid[x][y] + 1; // add a number to the code version of the grid
 			
+			
+			
 			System.out.println(Arrays.deepToString(boardGrid));
 			// remove the piece from the other zone
 			
 			tiles[P1xLoc1][P1yLoc1].setIcon(null); // remove the existing icon
-			tiles[x][y].setIcon(p1.getArt());
+			//tiles[x][y].setIcon(p1.getArt());
 			
+			switch(pChoice) { // get the art and data for the player's choice of pokemon
+			case 1: pChoice = 1;
+			
+				tiles[x][y].setIcon(p1.getArt());
+				
+				break;
+			case 2: pChoice = 2;
+			
+				tiles[x][y].setIcon(p2.getArt());
+				
+				break;
+			case 3: pChoice = 3;
+			
+				tiles[x][y].setIcon(p3.getArt());
+				
+				break;
+			case 4: pChoice = 4;
+			
+				tiles[x][y].setIcon(p4.getArt());
+				
+				break;
+				
+			case 5: pChoice = 5;
+				tiles[x][y].setIcon(p5.getArt());
+				
+				break;
+			case 6: pChoice = 0; // default to pokemon 1
+				tiles[x][y].setIcon(p1.getArt());
+				
+				break;
+			}
 			
 			// reset the location of the piece
 			P1xLoc1 = x;
@@ -222,7 +296,7 @@ public class GameScreen extends JFrame implements ActionListener{
 	}
 	
 	private class ButtonHandler implements ActionListener{ // handles any button click
-		
+
 		public void actionPerformed(ActionEvent e) {
 			Object src = e.getSource(); // get where the user clicks from
 			

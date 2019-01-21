@@ -9,7 +9,13 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
 public class GameOverScreen extends JFrame {
+
+    private static void setBackground(String game_over_window__Karinajpg) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 	public GameOverScreen() {
+  
+                GameOverScreen.setBackground("game over window - Karina.jpg");
 		
 		JLabel lblGameOver = new JLabel("Game Over");
 		lblGameOver.setFont(new Font("Ink Free", Font.BOLD | Font.ITALIC, 24));

@@ -1,5 +1,6 @@
 import javax.swing.JFrame;
 import javax.swing.JButton;
+import javax.swing.JOptionPane;
 
 import java.awt.Frame;
 import java.awt.Image;
@@ -58,7 +59,7 @@ public class main extends JFrame {
 			// set the pokemon choice variable to choice 1
 				System.out.println(playerChoice);
 				playerChoice = 1;
-				
+				JOptionPane.showMessageDialog(null, "Lapis-Pokemon-Stats.jpg");
 				System.out.println(playerChoice);
 				// hide to do list variables, enable playability
 				Todolbl.setVisible(false);
@@ -74,7 +75,7 @@ public class main extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				// set the pokemon choice variable to choice 2
 				playerChoice = 2;
-				
+				JOptionPane.showMessageDialog(null, "Element-Pokemon-Stats.jpg");
 				// hide to do list variables, enable playability
 				Todolbl.setVisible(false);
 				lblChoosePokemon.setVisible(false);
@@ -89,7 +90,7 @@ public class main extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				// set the pokemon choice variable to choice 3
 				playerChoice = 3;
-				
+				JOptionPane.showMessageDialog(null, "Havoc-Pokemon-Stats.jpg");
 				// hide to do list variables, enable playability
 				Todolbl.setVisible(false);
 				lblChoosePokemon.setVisible(false);
@@ -106,7 +107,7 @@ public class main extends JFrame {
 			
 				// set the pokemon choice variable to choice 5
 				playerChoice = 5;
-				
+				JOptionPane.showMessageDialog(null, "Virus-Pokemon-Stats.jpg");
 				// hide to do list variables, enable playability
 				Todolbl.setVisible(false);
 				lblChoosePokemon.setVisible(false);
@@ -121,7 +122,7 @@ public class main extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				// set the pokemon choice variable to choice 4
 				playerChoice = 4;
-				
+				JOptionPane.showMessageDialog(null, "Plexi-Pokemon-Stats.jpg");
 				// hide to do list variables, enable playability
 				Todolbl.setVisible(false);
 				lblChoosePokemon.setVisible(false);

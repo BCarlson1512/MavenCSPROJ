@@ -30,11 +30,11 @@ public class GameScreen extends JFrame implements ActionListener{
     
     // Art for the pokemon
     
-    ImageIcon elementArt = new ImageIcon("element-sprite.png");
-    ImageIcon havocArt = new ImageIcon("havoc-sprite.png");
-    ImageIcon lapisArt = new ImageIcon("lapis-sprite.png");
-    ImageIcon plexiArt = new ImageIcon("plexi-sprite.png");
-    ImageIcon virusArt = new ImageIcon("virus-sprite.png");
+    ImageIcon elementArt = new ImageIcon("element sprite.png");
+    ImageIcon havocArt = new ImageIcon("havoc sprite.png");
+    ImageIcon lapisArt = new ImageIcon("lapis sprite.png");
+    ImageIcon plexiArt = new ImageIcon("plexi sprite.png");
+    ImageIcon virusArt = new ImageIcon("virus sprite.png");
     
     Random r = new Random();
     
@@ -95,34 +95,37 @@ public class GameScreen extends JFrame implements ActionListener{
 	
 		// Case statement for when the player chooses a piece
 		
+		
+		//tiles[P1xLoc1][P1yLoc1].setIcon(lapisArt);
+		
 		switch(pChoice) { // get the art and data for the player's choice of pokemon
 		case 1: pChoice = 1;
 		
-			tiles[P1xLoc1][P1yLoc1].setIcon(p1.getArt());
+			tiles[P1xLoc1][P1yLoc1].setIcon(lapisArt);
 			
 			break;
 		case 2: pChoice = 2;
 		
-			tiles[P1xLoc1][P1yLoc1].setIcon(p2.getArt());
+			tiles[P1xLoc1][P1yLoc1].setIcon(elementArt);
 			
 			break;
 		case 3: pChoice = 3;
 		
-			tiles[P1xLoc1][P1yLoc1].setIcon(p3.getArt());
+			tiles[P1xLoc1][P1yLoc1].setIcon(havocArt);
 			
 			break;
 		case 4: pChoice = 4;
 		
-			tiles[P1xLoc1][P1yLoc1].setIcon(p4.getArt());
+			tiles[P1xLoc1][P1yLoc1].setIcon(plexiArt);
 			
 			break;
 			
 		case 5: pChoice = 5;
-			tiles[P1xLoc1][P1yLoc1].setIcon(p5.getArt());
+			tiles[P1xLoc1][P1yLoc1].setIcon(virusArt);
 			
 			break;
 		case 6: pChoice = 0; // default to pokemon 1
-			tiles[P1xLoc1][P1yLoc1].setIcon(p1.getArt());
+			tiles[P1xLoc1][P1yLoc1].setIcon(lapisArt);
 			
 			break;
 		}

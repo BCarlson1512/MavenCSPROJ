@@ -13,17 +13,23 @@ import javax.swing.LayoutStyle.ComponentPlacement;
 
 
 public class GameScreen extends JFrame implements ActionListener{
-	private JPanel boardGui  = new JPanel();
 	
+	// create a container that we can add our gridlayout to
 	private Container boardArea;
 	
+	
+	// we need an instance of main to get the variable playerchoice
 	main Main = new main();
 	int pChoice = main.playerChoice;
 	
 	// arrays that will be used within the program
     private int[][] boardGrid = new int[5][5];
     private JButton[][] tiles = new JButton[5][5];
+  
+    // image of enemies
     ImageIcon pokeball = new ImageIcon("Pokeball.PNG");
+    
+    // default background color
     Color olive = new Color(29,33,13);
     
 
@@ -37,7 +43,7 @@ public class GameScreen extends JFrame implements ActionListener{
     ImageIcon virusArt = new ImageIcon("virus sprite.png");
     
 
-    
+    // create a new instance of random to be used in enemy spawning below
     Random r = new Random();
     
     // locations of each individual piece, default will be set to the top middle three squares and bottom middle three squares
@@ -51,27 +57,32 @@ public class GameScreen extends JFrame implements ActionListener{
     private int P2yLoc1;
     private int P2yLoc2;
 
-
+    // the five base pokemon to be used within this game
     Pokemon p1 = new GrassPokemon("lapis", lapisArt);
     Pokemon p2 = new WaterPokemon("element", elementArt);
     Pokemon p3 = new FirePokemon("havoc", havocArt);
     Pokemon p4 = new GrassPokemon("plexi", plexiArt);
     Pokemon p5 = new WaterPokemon("virus", virusArt);
     
+    
+    // Custom event handler for button clicks
     ButtonHandler clickHandler = new ButtonHandler();
     
 	public GameScreen() { // constructor that creates the board
 
 
+		// location of all system files
+		//System.out.println(System.getProperty("user.dir"));
 		
-		System.out.println(System.getProperty("user.dir"));
-		
+		// get the content pane and then add a 5x5 grid layout
 		boardArea = getContentPane();
 		boardArea.setLayout(new GridLayout(5,5));
 		
+		
+		// initialize the button array
 		for(int i = 0; i < 5; i++) {
 			for(int j = 0; j < 5; j++) {
-
+				
 				tiles[i][j] = new JButton();
 				tiles[i][j].addActionListener(clickHandler);
 				tiles[i][j].setBackground(olive);;
@@ -97,8 +108,18 @@ public class GameScreen extends JFrame implements ActionListener{
 	
 		// Case statement for when the player chooses a piece
 		
+		/**
+		 * Cases as follows:
+		 * 
+		 * player chooses pokemon 1 = grab art for lapis
+		 * player chooses pokemon 2 = grab art for element
+		 * player chooses pokemon 3 = grab art for havoc
+		 * player chooses pokemon 4 = grab art for plexi
+		 * player chooses pokemon 5 = grab art for virus
+		 * 
+		 * default case = lapis 
+		 */
 		
-		//tiles[P1xLoc1][P1yLoc1].setIcon(lapisArt);
 		
 		switch(pChoice) { // get the art and data for the player's choice of pokemon
 		case 1: pChoice = 1;
@@ -133,21 +154,28 @@ public class GameScreen extends JFrame implements ActionListener{
 		}
 		
 		
-		boardGrid[P1xLoc1][P1yLoc1] = 1; // tell the game that a player has spawned in
+		boardGrid[P1xLoc1][P1yLoc1] = 1; // tell the game that a player has spawned in at 
 		
 		
-		//tiles[P1xLoc1][P1yLoc1].setIcon(p1.getArt());
-		//boardGrid[P1xLoc1][P1yLoc1] = 1;
 
 		// set locations of the icons and integer array locations
 		tiles[P2xLoc1][P2yLoc1].setIcon(pokeball);
 		boardGrid[P2xLoc1][P2yLoc1] = 1;
 		tiles[P2xLoc2][P2yLoc2].setIcon(pokeball);
 		boardGrid[P2xLoc2][P2yLoc2] = 1;
-		//tiles[P2xLoc3][P2yLoc3].setIcon(pokeball);
 
 	}	// this is the place where the game will be played, this gui element just has to be called on by main
 
+	/*
+	 * check to see if two players have collided
+	 * 
+	 * Int x is the x coordinate of the tile being checked
+	 * Int y is the y coordinate of the tile being checked
+	 * 
+	 * return false if there is no collision
+	 * 
+	 * return true when a collision between two players has occured
+	 */
 	public boolean checkCollision(int x, int y) { // this checks to see if two players are about to enter battle
 		for(int i = 0; i <= 4; i++) {
 			
@@ -167,36 +195,71 @@ public class GameScreen extends JFrame implements ActionListener{
 		return false;
 	}
 
+	/*
+	 * Checks to see if the player's move is valid
+	 * 
+	 * Take x coordinate as int x
+	 * 
+	 * Takes y as the y coordinate being checked
+	 * 
+	 * Makes sure that the piece can move correctly.
+	 * 
+	 * Existing bug where the player can also move in an L shape
+	 * 
+	 * Update bug fixed
+	 */
+	
 	public boolean validMove(int x, int y) {
 		int rowDiff = Math.abs(x - P1xLoc1);
 		int colDiff = Math.abs(y - P1yLoc1);
 		
-		if((rowDiff == 1 ) || (colDiff == 1)) { // horizontal and vertical movement
-			return true;
-		} 
+		System.out.println(rowDiff);
+		System.out.println(colDiff);
 		
-		if((rowDiff == 1 ) && (colDiff == 1)) { // diagonal movement
+		
+		// rengineered conditional fixes the l shape movement bug
+		
+		if((rowDiff > 1 )) { // horizontal movement
+			return false;
+		}else if((rowDiff > 1 ) && (colDiff > 1)) { // diagonal movement
+			return false;
+		}else if((colDiff > 1)) { // vertical movement
+			return false;
+		}else {
 			return true;
 		}
 		
-		return false;
-		
 	}
 
+	/*
+	 * Moves the player's piece
+	 * 
+	 * Take x coordinate as int x
+	 * 
+	 * Takes y as the y coordinate being checked
+	 * 
+	 * When a valid move is deteced and it is collision free,
+	 * 
+	 * Existing bug where the player can also move in an L shape
+	 */
+	
 	public void movePiece(int x, int y) {
 		// check for validity in moves
 		
 		//System.out.println(validMove(x,y));
 		
-		if(validMove(x, y) == false) {
+		boolean moveCheck = validMove(x,y);
+		boolean collisionCheck = checkCollision(x,y);
+		
+		if(moveCheck == false) {
 			return;
 		}
 		
-		if((validMove(x, y) == true) && (checkCollision(x,y) == true)) {
+		if((moveCheck == true) && (collisionCheck == true)) {
 			runBattle(x, y); // run the battle simulation between two pieces
 		}
 		
-		if((validMove(x, y) == true) && (checkCollision(x,y) == false)) {
+		if((moveCheck == true) && (collisionCheck == false)) {
 			
 			boardGrid[P1xLoc1][P1yLoc1] = 0;
 			
@@ -248,7 +311,14 @@ public class GameScreen extends JFrame implements ActionListener{
 		}
 
 	}
-	
+	/*
+	 * 
+	 * Int x is the x coordinate
+	 * Int y is the y coordinate
+	 * 
+	 * Removes the piece from the game at coordinates provided
+	 * 
+	 */
 	public void removePiece(int x, int y) { 
 		// removes the piece art and removes the piece from the game
 		// used when a battle is won/lost
@@ -259,6 +329,10 @@ public class GameScreen extends JFrame implements ActionListener{
 	}
 	
 
+	/*
+	 * runs a battle created from the battle class and coordinates x and y
+	 */
+	
 	public void runBattle(int x, int y) {
 		System.out.println("Loading Battle.. \n"); // testing first
 
@@ -281,6 +355,11 @@ public class GameScreen extends JFrame implements ActionListener{
 		
 	}
 	
+	/*
+	 * 
+	 * Once an endgame condtion is met, the game is reset for the next iteration
+	 * 
+	 */
 	public void endGame() { // Closes the game screen, shows game over window
 
 		for(int i = 0; i < 4; i++) {
@@ -303,8 +382,20 @@ public class GameScreen extends JFrame implements ActionListener{
 		
 	}
 	
+	/*
+	 * 
+	 * This is the custom actionlistener class for button clicks
+	 * 
+	 */
+	
 	private class ButtonHandler implements ActionListener{ // handles any button click
-
+		
+		/*
+		 * 
+		 * Handles all of the button clicks, taking an event at locaton e.
+		 * 
+		 */
+		
 		public void actionPerformed(ActionEvent e) {
 			Object src = e.getSource(); // get where the user clicks from
 			

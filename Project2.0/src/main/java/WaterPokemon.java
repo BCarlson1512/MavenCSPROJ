@@ -2,6 +2,18 @@ import javax.swing.ImageIcon;
 
 public class WaterPokemon extends Pokemon{// these are just placeholder names until we decide on types
 	
+	/*
+	 * Constructor for the base waterpokemon object
+	 * Parameters: 
+	 * Name - the name of the pokemon
+	 * Art - the art that will be displayed on the board
+	 * 
+	 * hp - User inputs the base hp
+	 * attack - user inputs the base attack
+	 * 
+	 * Stores base parameters forresistance and weakness
+	 */
+	
 	public WaterPokemon(String name, int hp, int cp, ImageIcon art) {
 		this.name = name;
 		this.hp = hp;
@@ -11,7 +23,14 @@ public class WaterPokemon extends Pokemon{// these are just placeholder names un
 		this.Weakness = "Grass";
 		this.art = art;
 	}
-	
+	/*
+	 * Constructor for the base waterpokemon object
+	 * Parameters: 
+	 * Name - the name of the pokemon
+	 * Art - the art that will be displayed on the board
+	 * 
+	 * Stores base parameters for hp, attack, resistance and weakness
+	 */
 	public WaterPokemon(String name, ImageIcon art) {
 		this.name = name;
 		this.hp = 125;

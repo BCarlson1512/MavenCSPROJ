@@ -18,10 +18,12 @@ import java.awt.Font;
 public class main extends JFrame {
 	
 	
-	// protected strings that store the player names, p1 and p2 are placeholders for now
+	// variable that can be accessed by any class in an event of changes
 	public static int playerChoice = 0;
 	
 	public main() {
+		
+		// runs an instance of the gameframe
 		final JButton PlayBtn = new JButton("Play");
 		PlayBtn.setEnabled(false);
 		PlayBtn.addActionListener(new ActionListener() {
@@ -39,7 +41,7 @@ public class main extends JFrame {
 		ExitBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 			
-				System.exit(0);
+				System.exit(0); // exits program
 				
 			}
 		});
@@ -51,6 +53,8 @@ public class main extends JFrame {
 		final JLabel lblReadInstructions = new JLabel("Read Instructions");
 		
 		final JLabel lblChoosePokemon = new JLabel("Choose Starting Pokemon");
+		
+		// Sets the int playerchoice to selection 1 for the player's pokemon
 		
 		final JButton btnLapis = new JButton("Lapis");
 		btnLapis.setEnabled(false);
@@ -69,6 +73,8 @@ public class main extends JFrame {
 		});
 		btnLapis.setFont(new Font("Tahoma", Font.PLAIN, 11));
 		
+		// Sets the int playerchoice to selection 2 for the player's pokemon
+		
 		final JButton btnElement = new JButton("Element");
 		btnElement.setEnabled(false);
 		btnElement.addActionListener(new ActionListener() {
@@ -83,6 +89,8 @@ public class main extends JFrame {
 			}
 		});
 		btnElement.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		
+		// Sets the int playerchoice to selection 3 for the player's pokemon
 		
 		final JButton btnHavoc = new JButton("Havoc");
 		btnHavoc.setEnabled(false);
@@ -100,6 +108,8 @@ public class main extends JFrame {
 		});
 		btnHavoc.setFont(new Font("Tahoma", Font.PLAIN, 11));
 		
+		
+		// Sets the int playerchoice to selection 5 for the player's pokemon
 		final JButton btnVirus = new JButton("Virus");
 		btnVirus.setEnabled(false);
 		btnVirus.addActionListener(new ActionListener() {
@@ -116,6 +126,8 @@ public class main extends JFrame {
 		});
 		btnVirus.setFont(new Font("Tahoma", Font.PLAIN, 11));
 		
+		
+		// Sets the int playerchoice to selection 4 for the player's pokemon
 		final JButton btnPlexi = new JButton("Plexi");
 		btnPlexi.setEnabled(false);
 		btnPlexi.addActionListener(new ActionListener() {
@@ -232,7 +244,7 @@ public class main extends JFrame {
 
 	
 	
-	
+	// creates the main menu frame
 	public static void draw() { //creates the frame 
 			try {
 				

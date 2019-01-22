@@ -36,6 +36,8 @@ public class GameScreen extends JFrame implements ActionListener{
     ImageIcon plexiArt = new ImageIcon("plexi sprite.png");
     ImageIcon virusArt = new ImageIcon("virus sprite.png");
     
+
+    
     Random r = new Random();
     
     // locations of each individual piece, default will be set to the top middle three squares and bottom middle three squares
@@ -256,9 +258,12 @@ public class GameScreen extends JFrame implements ActionListener{
 		
 	}
 	
+
 	public void runBattle(int x, int y) {
 		System.out.println("Loading Battle.. \n"); // testing first
-		Battle contestedPoint = new Battle(p1, p2);
+
+			Battle contestedPoint = new Battle(p1, p2);
+
 		//contestedPoint.doBattle();
 
 		if(contestedPoint.doBattle() == 1) { // p1 wins the fight

@@ -22,34 +22,45 @@ public class WaterPokemon extends Pokemon{// these are just placeholder names un
 		this.art = art;
 	}
 	
-	public boolean isDead(){
-		int hp = getHP();
-		
-		if(hp < 0) {
-			return false;
-		}else {
-			return true;
-		}
-	}
-	
+	/*
+	 * Gets the attack from the pokemon object
+	 * 
+	 * returns an integer value for the attack
+	 */
 	public int getAttack(){
 		return Attack;
 	}
-	
+	/*
+	 * Gets the hp from the pokemon object
+	 * 
+	 * returns an integer value for the hp
+	 */
 	public int getHP() {
 		return hp;
 	}
 	
-	
+	/*
+	 * Gets the type from the pokemon object
+	 * 
+	 * returns an String value for the type, currently only grass, water or fire
+	 */
 	public String getType() {
 		return Type;
 	}
-	
+	/*
+	 * Gets the weakness from the pokemon object
+	 * 
+	 * returns an String value for the weakness, currently only grass, water or fire
+	 */
 	public String getWeakness() {
-		System.out.println(Weakness);
+		//System.out.println(Weakness);
 		return Weakness;
 	}
-	
+	/*
+	 * Gets the resistance from the pokemon object
+	 * 
+	 * returns an String value for the resistance, currently only grass, water or fire
+	 */
 	public String getResistance() {
 		return Resistance;
 	}

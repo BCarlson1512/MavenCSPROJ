@@ -11,6 +11,10 @@ import java.awt.event.ActionEvent;
 
 public class InstructionsWindow extends JFrame {
 	
+	
+	/*
+	 * experimental way of storing the instructions pages
+	 */
 	String [] instructionsText = new String[5];{
 		instructionsText[0] = "Game Rules 1: \n"
 				+ "\n"
@@ -53,6 +57,8 @@ public class InstructionsWindow extends JFrame {
 		JLabel lblInstructions = new JLabel("Instructions");
 		lblInstructions.setFont(new Font("Lucida Sans", Font.BOLD, 17));
 		
+		
+		// close the window using dispose()
 		JButton Close = new JButton("Close Window");
 		Close.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {

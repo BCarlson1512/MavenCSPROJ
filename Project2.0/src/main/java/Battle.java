@@ -23,11 +23,22 @@ public class Battle {
 	 * this will be used within runBattle under Class GameScreen
 	 */
 	
+	/*
+	 * battle constructor, the two pokemon that are battling for a square as parameters
+	 * assigns them to variables of this class
+	 */
 	public Battle(Pokemon firstPkmn, Pokemon secondPkmn) {// creates the battle event
 		this.pieceOne = firstPkmn;
 		this.pieceTwo = secondPkmn;
 	}
 	
+	
+	/*
+	 * runs the battles between pokemon in the event of collision
+	 * 
+	 * returns a 1 value when a battle is won by the player
+	 * returns a 2 when the battle is lost by a player
+	 */
 	 public int doBattle() {
 	        
 	        System.out.println(String.format("Begin Battle: %s vs. %s!", pieceOne.getName(), pieceTwo.getName()));

@@ -40,29 +40,64 @@ public class Pokemon {
 		return Type;
 	}
 	
+	/*
+	 * modifies the hp of a pokemon only used in the event of a battle
+	 * newHP is the hp after each damage phase
+	 */
     public void changeHP(int newHP) {
-        if (newHP < 0) {
+        if (newHP < 0) { // if its less than zero, just round it off at zero
             this.hp = 0;
         } else {
-            this.hp = newHP;
+            this.hp = newHP; // set the hp to the newHp variable
         }
     }
-	
-    public String getResistance() {
-    	return Resistance;
-    }
+	/*
+	 * Gets the weakness from the pokemon object
+	 * 
+	 * returns an String value for the weakness, currently only grass, water or fire
+	 */
+	public String getWeakness() {
+		//System.out.println(Weakness);
+		return Weakness;
+	}
+	/*
+	 * Gets the resistance from the pokemon object
+	 * 
+	 * returns an String value for the resistance, currently only grass, water or fire
+	 */
+	public String getResistance() {
+		return Resistance;
+	}
     
-    public String getWeakness(){
-    	return Weakness;
-    }
-    
+    /*
+     * Gathers the string name of the pokemon
+     * returns a string of the name
+     * 
+     */
     public String getName() {
     	return name;
     }
     
+    /*
+     * Fetches the art stored in the pokemon object
+     * returns the imageicon
+     */
+    
     public ImageIcon getArt() {
     	return art;
     }
+    
+    /*
+     * 
+     * Runs the battle between two pokemon
+     * 
+     * Pokemon m is p1
+     * 
+     * Pokemon m is the ai pokemon its fighting against
+     * 
+     * Currently working on a console output
+     * 
+     */
     
     public void Battleattack(Pokemon p, Pokemon m) { // pokemon m represents the defending pokemon
     	
@@ -79,6 +114,23 @@ public class Pokemon {
     	pWeak = p.getWeakness();
     	mWeak = m.getWeakness();
 
+    	
+    	/*
+    	 * checks for weakness and resistance cases
+    	 * 
+    	 * Weakness cases:
+    	 * 
+    	 * Grass attacks water
+    	 * Fire attacks grass
+    	 * water attacks fire
+    	 * 
+    	 * Resistance cases are:
+    	 * 
+    	 * water attacks grass
+    	 * grass attacks fire
+    	 * fire attacks water
+    	 * 
+    	 */
     	
     	if(pType.equals("Grass") && mWeak.equals("Water")) { // grass attacking water gets a damage boost
     		

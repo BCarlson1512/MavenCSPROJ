@@ -6,6 +6,8 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Random;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.border.EmptyBorder;
@@ -35,12 +37,29 @@ public class GameScreen extends JFrame implements ActionListener{
 
     
     // Art for the pokemon
+    ImageIcon OrihavocArt = new ImageIcon("havoc sprite.png");
+    ImageIcon OrielementArt = new ImageIcon("element sprite.png");
+    ImageIcon OrilapisArt = new ImageIcon("lapis sprite.png");
+    ImageIcon OriplexiArt = new ImageIcon("plexi sprite.png");
+    ImageIcon OrivirusArt = new ImageIcon("virus sprite.png");
     
-    ImageIcon elementArt = new ImageIcon("element sprite.png");
-    ImageIcon havocArt = new ImageIcon("havoc sprite.png");
-    ImageIcon lapisArt = new ImageIcon("lapis sprite.png");
-    ImageIcon plexiArt = new ImageIcon("plexi sprite.png");
-    ImageIcon virusArt = new ImageIcon("virus sprite.png");
+    Image imghavoc=OrihavocArt.getImage();
+    Image imgelement=OrielementArt.getImage();
+    Image imglapis=OrilapisArt.getImage();
+    Image imgplexi=OriplexiArt.getImage();
+    Image imgvirus=OrivirusArt.getImage();
+    
+    Image newinghavoc = imghavoc.getScaledInstance( 100, 100,  java.awt.Image.SCALE_SMOOTH ) ;
+    Image newingelement = imgelement.getScaledInstance( 100, 100,  java.awt.Image.SCALE_SMOOTH ) ;
+    Image newinglapis = imglapis.getScaledInstance( 100, 100,  java.awt.Image.SCALE_SMOOTH ) ;
+    Image newingplexi = imgplexi.getScaledInstance( 100, 100,  java.awt.Image.SCALE_SMOOTH ) ;
+    Image newingvirus = imgvirus.getScaledInstance( 100, 100,  java.awt.Image.SCALE_SMOOTH ) ;
+    
+    ImageIcon havocArt = new ImageIcon(newinghavoc);
+    ImageIcon elementArt = new ImageIcon(newingelement);
+    ImageIcon lapisArt = new ImageIcon(newinglapis);
+    ImageIcon plexiArt = new ImageIcon(newingplexi);
+    ImageIcon virusArt = new ImageIcon(newingvirus);
     
 
     // create a new instance of random to be used in enemy spawning below
@@ -243,7 +262,7 @@ public class GameScreen extends JFrame implements ActionListener{
 	 * Existing bug where the player can also move in an L shape
 	 */
 	
-	public void movePiece(int x, int y) {
+	public void movePiece(int x, int y) throws InterruptedException {
 		// check for validity in moves
 		
 		//System.out.println(validMove(x,y));
@@ -333,7 +352,7 @@ public class GameScreen extends JFrame implements ActionListener{
 	 * runs a battle created from the battle class and coordinates x and y
 	 */
 	
-	public void runBattle(int x, int y) {
+	public void runBattle(int x, int y) throws InterruptedException {
 		System.out.println("Loading Battle.. \n"); // testing first
 
 			Battle contestedPoint = new Battle(p1, p2);
@@ -403,7 +422,11 @@ public class GameScreen extends JFrame implements ActionListener{
 				for(int j = 0; j < 5; j++) {
 					if(src == tiles[i][j]) {
 						
-						movePiece(i,j); // pass it to the movepiece function
+                                            try {
+                                                movePiece(i,j); // pass it to the movepiece function
+                                            } catch (InterruptedException ex) {
+                                                Logger.getLogger(GameScreen.class.getName()).log(Level.SEVERE, null, ex);
+                                            }
 						return; // stop running the loops after its been found
 					}
 

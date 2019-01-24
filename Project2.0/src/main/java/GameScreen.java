@@ -75,6 +75,10 @@ public class GameScreen extends JFrame implements ActionListener{
     private int P2xLoc2;
     private int P2yLoc1;
     private int P2yLoc2;
+    
+    // locations for pokemon 3
+    private int P2yLoc3;
+    private int P2xLoc3;
 
     // the five base pokemon to be used within this game
     Pokemon p1 = new GrassPokemon("lapis", lapisArt);
@@ -118,11 +122,21 @@ public class GameScreen extends JFrame implements ActionListener{
 		P2yLoc2 = r.nextInt(4) + 1;
 		P2yLoc1 = r.nextInt(4) + 1;
 		
+		numPokemon++;
+		
+		P2xLoc3 = r.nextInt(4) + 1;
+		P2yLoc3 = r.nextInt(4) + 1;
+		
 		numPokemon++; // Tell the game that there is another pokemon on the field
 		
 		if((P2xLoc1 == P2xLoc2) && (P2yLoc1 == P2yLoc2)) {// re roll the x and y values if they are duplicates
 			P2xLoc1 = r.nextInt(4);
 			
+		}else if((P2xLoc1 == P2xLoc3) && (P2yLoc1 == P2yLoc3)) { // re roll conditions for pokemon 3
+			P2xLoc1 = r.nextInt(4);
+		
+		}else if((P2xLoc2 == P2xLoc3) && (P2yLoc2 == P2yLoc3)) {
+			P2xLoc2 = r.nextInt(4);
 		}
 	
 		// Case statement for when the player chooses a piece
@@ -182,6 +196,9 @@ public class GameScreen extends JFrame implements ActionListener{
 		boardGrid[P2xLoc1][P2yLoc1] = 1;
 		tiles[P2xLoc2][P2yLoc2].setIcon(pokeball);
 		boardGrid[P2xLoc2][P2yLoc2] = 1;
+		
+		tiles[P2xLoc3][P2yLoc3].setIcon(pokeball);
+		boardGrid[P2xLoc3][P2yLoc3] = 1;
 
 	}	// this is the place where the game will be played, this gui element just has to be called on by main
 
@@ -342,7 +359,7 @@ public class GameScreen extends JFrame implements ActionListener{
 		// removes the piece art and removes the piece from the game
 		// used when a battle is won/lost
 		
-		tiles[x][y].setIcon(virusArt);
+		tiles[x][y].setIcon(null);
 		boardGrid[x][y] = boardGrid[x][y] - 1;
 		
 	}
